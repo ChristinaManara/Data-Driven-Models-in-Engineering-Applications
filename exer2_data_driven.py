@@ -40,6 +40,7 @@ def K(nblock):
     
     return A
 
+# Creation the b vector for the system of linear equations
 
 def b(nblock, Temp):
     b = np.zeros(nblock**2)
@@ -47,14 +48,27 @@ def b(nblock, Temp):
     print("b = \n", b)
     return b
 
-def solve_equation():
+# We want to add the boundary conditions to the array, and we have again a 40x40 array instead of just 38x38 of unknown values. 
+# This can be done by embedding the unknown array into a larger array. 
+
+def embed(T, Temp):
+    N = T.shape[0] + 2
+    T_filled = np.zeros((N,N))
+    T_filled[0] = Temp
+    T_filled[1:-1, 1:-1] = T
+    return T_filled
+
+def solve_equation(K, b, nblock, Temp):
     u = np.linalg.solve(K, b)
     T = u.reshape((nblock, nblock))
-    Tfull = embed(T)
-    print("Tfull = \n", Tfull)
+    T_filled = embed(T, Temp)
+    print("Tfull = \n", T_filled)
+    return T
 
 
-
+K_arr = K(nblock)
+b_vec = b(nblock, Temp)
+solve_equation(K_arr, b_vec, nblock, Temp)
 
 
 
