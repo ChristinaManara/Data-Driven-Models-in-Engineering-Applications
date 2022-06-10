@@ -9,6 +9,10 @@ import matplotlib.pyplot as plt
 N = 40
 Temp = 100
 nblock = N - 2
+dim_X = 40
+dim_Y = 40
+delta = 1
+max_Iter = 1200
 
 def K(nblock):
     # Diagonal has -4 in every cell 
@@ -70,6 +74,24 @@ K_arr = K(nblock)
 b_vec = b(nblock, Temp)
 solve_equation(K_arr, b_vec, nblock, Temp)
 
+# Part B
+
+def f_x_y(h, r):
+    f = []
+    for i in range(1, dim_X-1, delta):
+        for j in range(1, dim_Y-1, delta):
+            res = (h ** 2) * 100.0 * np.exp(-((i/N - 0.55) ** 2 + (j/N - 0.45) ** 2 ) / r)
+            print(res)
+            f.append(res)
+    return f
+       
+
+mid_point = int((nblock**2 - 1) / 2)
+for i in range(max_Iter):
+    
+
+
+print(mid_point)
 
 
 # # Maximum iteration
@@ -105,10 +127,6 @@ solve_equation(K_arr, b_vec, nblock, Temp)
 # # b = np.empty(dim_X * dim_Y)
 # # counter = 0
 
-# # for i in range(1, dim_X-1, delta):
-# #     for j in range(1, dim_Y-1, delta):
-# #        b[counter]  = (h ** 2) * 100.0 * np.exp(-((x - 0.55) ** 2 + (y - 0.45) ** 2 ) / r)
-# #        counter += 1
 
 
 # # Iteration (We assume that the iteration is convergence in maxIter = 500)
