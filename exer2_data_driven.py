@@ -53,10 +53,9 @@ def K(nblock):
 def b(nblock, Temp):
     b = np.zeros(nblock**2)
     b[:nblock] = -Temp
-    print("b = \n", b)
     return b
 
-def solve_equation(K, b, nblock, Temp):
+def solve_equation(K, b, nblock):
     u = np.linalg.solve(K, b)
     T = u.reshape((nblock, nblock))
     return T
@@ -64,7 +63,7 @@ def solve_equation(K, b, nblock, Temp):
 
 K_arr = K(nblock)
 b_vec = b(nblock, Temp)
-T_solved = solve_equation(K_arr, b_vec, nblock, Temp)
+T_solved = solve_equation(K_arr, b_vec, nblock)
 
 # Colorplot 
 # def colorplot(T_solved, N, Temp):
@@ -134,40 +133,34 @@ def plot_samples(results):
 # Part C
 
 pca_iter = 100
-reduced_res = []
-for i in range(max_Iter):
+reduced_res = np.zeros((nblock**2, pca_iter))
+for i in range(pca_iter):
     r = np.random.normal(mean, std)
     tmp = f_x_y(h, r)
     simulation = np.dot(K_arr_inv, tmp)
     # Append the point we are intrested in
-    reduced_res.append(simulation[mid_point])
+    reduced_res[:, i] = simulation
 
-pca()
-
-def pca(X , num_components):
+# https://www.askpython.com/python/examples/principal-component-analysis & Course of Stochastic Processes
+def pca(X, iterations, k):
+    
+    eigen_values , eigen_vectors = np.linalg.eigh(np.dot(X, X.T))
      
-    # Step-1
-    X_meaned = X - np.mean(X , axis = 0)
-     
-    # Step-2
-    cov_mat = np.cov(X_meaned , rowvar = False)
-     
-    # Step-3
-    eigen_values , eigen_vectors = np.linalg.eigh(cov_mat)
-     
-    # Step-4
     sorted_index = np.argsort(eigen_values)[::-1]
     sorted_eigenvalue = eigen_values[sorted_index]
     sorted_eigenvectors = eigen_vectors[:,sorted_index]
-     
-    # Step-5
-    eigenvector_subset = sorted_eigenvectors[:,0:num_components]
-     
-    # Step-6
-    X_reduced = np.dot(eigenvector_subset.transpose() , X_meaned.transpose() ).transpose()
-     
-    return X_reduced
+    
+    pca_eigenvectors = sorted_eigenvectors[:, :k]
+    K_red = np.linalg.multi_dot([pca_eigenvectors.T, K_arr, pca_eigenvectors])
+    K_red_inv = np.linalg.inv(K_red)
+    pca_solution = np.zeros((iterations, k))
+    for i in range(iterations):
+        F_red = np.dot(pca_eigenvectors.T, f_x_y(h, np.random.normal(0.05, 0.005)))
+        pca_solution[i, :] = np.dot(K_red_inv, F_red)
+    real_solution = np.dot(pca_eigenvectors, pca_solution.T)
+
+    return real_solution
 
 
-
-
+pca_re = pca(reduced_res, 10000, 3)
+plot_samples(pca_re[:, mid_point])
