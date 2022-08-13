@@ -63,7 +63,10 @@ Derive the linear system of equations Kx=b for the problem. (Comment: Instead of
 3. Perform a small number of deterministic simulations for different values of r, and use these solutions as your initial data set. Implement the PCA/POD method to reduce the dimensionality of the linear system that describes the problem and perform the Monte Carlo simulation on the reduced system. Compare the pdf of T at point (0.5,0.5) to the one from the previous question.
 
 
-
-
-
 # Exercise 3
+
+*Extreme Driving Detection
+
+You are given the records of the sensors of a driver’s smartphone (accelerometer, gyroscope and GPS) for a number of trips. The data are in a completely anonymized format.
+You are asked to detect extreme turning movements. Compare the results of, at least, three different algorithms.
+
