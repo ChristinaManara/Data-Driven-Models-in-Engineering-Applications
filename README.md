@@ -30,6 +30,24 @@ $$
 
 # Exercise 2
 
+Consider a rectangular plate of dimensions 1 m ×1 m. There is a candle located at position (0.55,0.45) below the plate which heats it. The steady state equation that describes the temperature field T(x,y) along the plate at thermal equilibrium is:
+
+$$
+-\left(\frac{\partial^{2} T}{\partial x^{2}}+\frac{\partial^{2} T}{\partial y^{2}}\right)=f(x, y)
+$$
+
+where f(x,y) is the external heat source due the candle, given by:
+
+$$
+f(x, y)=100 \cdot \exp \left(-\frac{(x-0.55)^{2}+(y-0.45)^{2}}{r}\right)
+$$
+
+with r~N(0.05,0.005) being a normal random variable. 
+At all edges of the plate we assign T=0 (Dirichlet Boundary conditions).
+
+
+
+
 
 
 # Exercise 3
