@@ -65,7 +65,7 @@ Derive the linear system of equations Kx=b for the problem. (Comment: Instead of
 
 # Exercise 3
 
-**Extreme Driving Detection
+Extreme Driving Detection
 
 You are given the records of the sensors of a driver’s smartphone (accelerometer, gyroscope and GPS) for a number of trips. The data are in a completely anonymized format.
 You are asked to detect extreme turning movements. Compare the results of, at least, three different algorithms.
