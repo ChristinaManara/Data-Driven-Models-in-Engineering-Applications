@@ -13,7 +13,7 @@ import seaborn as sns
 import math
 import scipy.stats as stats
 
-
+# Christina Manara 03400142
 # Part A 
 
 N = 40
@@ -26,7 +26,7 @@ max_Iter = 5000
 h = delta/dim_X # or dim_Y it does not matter, type -> h=1/40=Δx=Δy
 
 def K(nblock):
-    # Diagonal has -4 in every cell 
+    # Diagonal has 4 in every cell 
     K_diag = 4 * np.eye(nblock**2) 
 
     sh_diagonal = - 1 * np.ones(nblock**2 - 1)
