@@ -50,6 +50,18 @@ At all edges of the plate we assign T=0 (Dirichlet Boundary conditions).
 - $\frac{\partial^{2} T}{\partial x^{2}} \approx \frac{T(x+h, y)-2 T(x, y)+T(x-h, y)}{h^{2}}$
 - $\frac{\partial^{2} T}{\partial y^{2}} \approx \frac{T(x, y+h)-2 T(x, y)+T(x, y-h)}{h^{2}}$
 
+you can get the finite difference scheme:
+
+$$
+-T(x+h, y)-T(x, y+h)+4 T(x, y)-T(x-h, y)-T(x, y-h) \approx h^{2} f(x, y)
+$$
+
+Derive the linear system of equations Kx=b for the problem. (Comment: Instead of this scheme, you can use quadrilateral finite elements to derive a linear system for this problem, or any other scheme of your choice.)
+
+2. Perform Monte Carlo simulation to obtain the probability density function of the temperature at the midpoint of the plate (0.5, 0.5).
+
+3. Perform a small number of deterministic simulations for different values of r, and use these solutions as your initial data set. Implement the PCA/POD method to reduce the dimensionality of the linear system that describes the problem and perform the Monte Carlo simulation on the reduced system. Compare the pdf of T at point (0.5,0.5) to the one from the previous question.
+
 
 
 
