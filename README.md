@@ -42,7 +42,7 @@ $$
 f(x, y)=100 \cdot \exp \left(-\frac{(x-0.55)^{2}+(y-0.45)^{2}}{r}\right)
 $$
 
-with r~N(0.05,0.005) being a normal random variable. 
+with $r \sim N(0.05,0.005)$ being a normal random variable. 
 At all edges of the plate we assign T=0 (Dirichlet Boundary conditions).
 
 
