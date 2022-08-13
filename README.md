@@ -45,6 +45,10 @@ $$
 with $r \sim N(0.05,0.005)$ being a normal random variable. 
 At all edges of the plate we assign T=0 (Dirichlet Boundary conditions).
 
+1. 	Discretize the plate using a 40×40 grid, with h=Δx=Δy=1/40. Using the following second-order central difference approximation to 2nd derivatives
+
+- $\frac{\partial^{2} T}{\partial x^{2}} \approx \frac{T(x+h, y)-2 T(x, y)+T(x-h, y)}{h^{2}}$
+- $\frac{\partial^{2} T}{\partial y^{2}} \approx \frac{T(x, y+h)-2 T(x, y)+T(x, y-h)}{h^{2}}$
 
 
 
