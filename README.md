@@ -30,7 +30,7 @@ $$
 
 # Exercise 2
 
-Consider a rectangular plate of dimensions 1 m ×1 m. There is a candle located at position (0.55,0.45) below the plate which heats it. The steady state equation that describes the temperature field T(x,y) along the plate at thermal equilibrium is:
+Consider a rectangular plate of dimensions 1 m × 1 m. There is a candle located at position (0.55, 0.45) below the plate which heats it. The steady state equation that describes the temperature field T(x,y) along the plate at thermal equilibrium is:
 
 $$
 -\left(\frac{\partial^{2} T}{\partial x^{2}}+\frac{\partial^{2} T}{\partial y^{2}}\right)=f(x, y)
