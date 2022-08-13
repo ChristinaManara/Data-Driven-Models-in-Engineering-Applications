@@ -18,7 +18,10 @@ where f(x) is a zero-mean stationary Gaussian field with unit variance and $x \i
 B) Consider the zero-mean Gaussian process X(t), t∈[0,10] (sec),  which has the following one-sided power-spectrum
 
 $$
-G(\omega)= \begin{cases}\omega-1, & 1 \leq \omega \leq 2 \\ 3-\omega, & 2<\omega \leq 3 \\ 0, & \text { otherwise }\end{cases}
+G(\omega)= \begin{cases}\omega-1, 
+& 1 \leq \omega \leq 2 \\ 3-\omega, 
+& 2<\omega \leq 3 \\ 0, 
+& \text { otherwise }\end{cases}
 $$
 
 1. Use the Spectral Representation method to generate N=5000 time-histories (realizations) of the process X(t).
